@@ -4,19 +4,21 @@ class ArticlesController < ApplicationController
 	# before_action :authenticate_user!
 	
 	def index
-	    @articles = Article.all
-	  end
+		@articles = Article.all
+		@articles = @articles.search(params[:search]) if params[:search].present?	
+	end
 	
 	def show
-	    @article = Article.find(params[:id])
+		@article = Article.find(params[:id])
 	end
+	
 	
 	#def edit
 	#    @article = Article.find(params[:id])
 	#end
 	
 	#def new
-  #	 @article = Article.new
+	#	 @article = Article.new
 	#end
 	
 	#def create
@@ -33,9 +35,9 @@ class ArticlesController < ApplicationController
 	#  @article = Article.find(params[:id])
  
 	#  if @article.update(article_params)
-	 #   redirect_to @article
+	#   redirect_to @article
 	#  else
-	 #   render 'edit'
+	#   render 'edit'
 	#  end
 	#end
 	
