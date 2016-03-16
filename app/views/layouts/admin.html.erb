@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<img src="images/photo.jpg" alt="..." class="img-rounded">
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="#">Home </a>
+          <a class="blog-nav-item" href="#">New features </a>
+          <a class="blog-nav-item" href="#">Press </a>
+          <a class="blog-nav-item" href="#">New hires </a>
+          <a class="blog-nav-item" href="#">About </a>
+        </nav>
+      </div>
+    </div>
+	
+	<div class="container">
+
+	     
+
+	      <div class="row">
+
+	        <div class="col-sm-8 blog-main">
+				
+<%= yield %>
+
+
+        </div><!-- /.blog-main -->
+
+  </body>
+</html>
+</html>
