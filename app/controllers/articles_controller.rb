@@ -4,8 +4,9 @@ class ArticlesController < ApplicationController
 	# before_action :authenticate_user!
 	
 	def index
-		@articles = Article.all
-		@articles = @articles.search(params[:search]) if params[:search].present?	
+		@articles = Article.all if !params[:search].present?
+	#	@articles = @articles.search(params[:search]) if params[:search].present?	
+		@articles = Article.where("title LIKE :t OR text LIKE :t", :t => "%#{params[:search]}%") if params[:search].present?
 	end
 	
 	def show

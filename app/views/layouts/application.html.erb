@@ -1,101 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Project</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<%= image_tag "photo.jpg", class: "img-rounded" %>
-    <div class="blog-masthead">
-      <div class="container">
-        <nav class="blog-nav">
-          <a class="blog-nav-item active" href="#">Home </a>
-          <a class="blog-nav-item" href="#">New features </a>
-          <a class="blog-nav-item" href="#">Press </a>
-          <a class="blog-nav-item" href="#">New hires </a>
-          <a class="blog-nav-item" href="#">About </a>
-        </nav>
-      </div>
-    </div>
-	
-	<div class="container">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= content_for?(:title) ? yield(:title) : "Project" %></title>
+	<%= csrf_meta_tags %>
 
-	      <div class="blog-header">
-	        <h1 class="blog-title">The Caio Blog</h1>
-	        <p class="lead blog-description">O Blog tá ficando legal.</p>
-	      </div>
+	<%= stylesheet_link_tag "application", :media => "all" %>
 
-	      <div class="row">
+	<!-- For third-generation iPad with high-resolution Retina display: -->
+	<!-- Size should be 144 x 144 pixels -->
+	<%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
 
-	        <div class="col-sm-8 blog-main">
-				
-<%= yield %>
+	<!-- For iPhone with high-resolution Retina display: -->
+	<!-- Size should be 114 x 114 pixels -->
+	<%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
 
-<nav>
-            <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
-          </nav>
+	<!-- For first- and second-generation iPad: -->
+	<!-- Size should be 72 x 72 pixels -->
+	<%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
 
-        </div><!-- /.blog-main -->
+	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+	<!-- Size should be 57 x 57 pixels -->
+	<%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <div class="sidebar-module sidebar-module-inset">
-			 
-			 <%= render 'article_filter' %>
-            <h4>About</h4>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-          </div>
-          <div class="sidebar-module">
-            <h4>Archives</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">March 2014</a></li>
-              <li><a href="#">February 2014</a></li>
-              <li><a href="#">January 2014</a></li>
-              <li><a href="#">December 2013</a></li>
-              <li><a href="#">November 2013</a></li>
-              <li><a href="#">October 2013</a></li>
-              <li><a href="#">September 2013</a></li>
-              <li><a href="#">August 2013</a></li>
-              <li><a href="#">July 2013</a></li>
-              <li><a href="#">June 2013</a></li>
-              <li><a href="#">May 2013</a></li>
-              <li><a href="#">April 2013</a></li>
-            </ol>
-          </div>
-          <div class="sidebar-module">
-            <h4>Elsewhere</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Facebook</a></li>
-            </ol>
-          </div>
-        </div><!-- /.blog-sidebar -->
+	<!-- For all other devices -->
+	<!-- Size should be 32 x 32 pixels -->
+	<%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
-      </div><!-- /.row -->
+	<%= javascript_include_tag "application" %>
 
-    </div><!-- /.container -->
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+		<![endif]-->
+	</head>
+	<body>
 
-    <footer class="blog-footer">
-      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer>
+		<div class="blog-masthead">
+			<div class="container">
+				<nav class="blog-nav">
+					<a class="blog-nav-item active" href="#">Home</a>
+					<a class="blog-nav-item" href="#">New features</a>
+					<a class="blog-nav-item" href="#">Press</a>
+					<a class="blog-nav-item" href="#">New hires</a>
+					<a class="blog-nav-item" href="#">About</a>
+				</nav>
+			</div>
+		</div>
+
+		<div class="container">
+
+			<div class="blog-header">
+				<h1 class="blog-title">The Caio Blog</h1>
+				<p class="lead blog-description">Tá ficando legal.</p>
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm-8 blog-main">
+
+					<div class="blog-post">
+						<h2 class="blog-post-title">Sample blog post</h2>
+						<p class="blog-post-meta"><%=Time.now%> <a href="#">Mark</a></p>
+
+						<%=yield%>
+</div>
+						<nav>
+							<ul class="pager">
+								<li><a href="#">Previous</a></li>
+								<li><a href="#">Next</a></li>
+							</ul>
+						</nav>
+
+					</div><!-- /.blog-main -->
+
+					<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+						<div class="sidebar-module sidebar-module-inset">
+							<%#= render 'article_filter' %>
+						    <%= form_tag articles_path, :method => :get do %>
+						      <%= text_field_tag :search, "",
+						            :placeholder => "Search",
+						            :type => "search",
+						            :class => "form-control" %>
+		  
+						  		  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+						    <% end %>
+							<h4>About</h4>
+							<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+						</div>
+						<div class="sidebar-module">
+							<h4>Archives</h4>
+							<ol class="list-unstyled">
+								<li><a href="#">March 2014</a></li>
+								<li><a href="#">February 2014</a></li>
+								<li><a href="#">January 2014</a></li>
+								<li><a href="#">December 2013</a></li>
+								<li><a href="#">November 2013</a></li>
+								<li><a href="#">October 2013</a></li>
+								<li><a href="#">September 2013</a></li>
+								<li><a href="#">August 2013</a></li>
+								<li><a href="#">July 2013</a></li>
+								<li><a href="#">June 2013</a></li>
+								<li><a href="#">May 2013</a></li>
+								<li><a href="#">April 2013</a></li>
+							</ol>
+						</div>
+						<div class="sidebar-module">
+							<h4>Elsewhere</h4>
+							<ol class="list-unstyled">
+								<li><a href="#">GitHub</a></li>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">Facebook</a></li>
+							</ol>
+						</div>
+					</div><!-- /.blog-sidebar -->
+
+				</div><!-- /.row -->
+
+			</div><!-- /.container -->
+
+			<footer class="blog-footer">
+				<p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+				<p>
+					<a href="#">Back to top</a>
+				</p>
+			</footer>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-</html>
-</html>
+			<!-- Bootstrap core JavaScript
+				================================================== -->
+				<!-- Placed at the end of the document so the pages load faster -->
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+				<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+				<script src="../../dist/js/bootstrap.min.js"></script>
+				<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+				<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+			</body>
+			</html>

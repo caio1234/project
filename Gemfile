@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem "paperclip"
 gem 'haml'
 
 gem "therubyracer"
