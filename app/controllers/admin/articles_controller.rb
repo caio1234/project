@@ -15,6 +15,7 @@ class Admin::ArticlesController <  Admin::AdminController
 	end
 	
 	def show
+		teste
 		@article = Article.find(params[:id])
 	end
 	
@@ -28,7 +29,6 @@ class Admin::ArticlesController <  Admin::AdminController
 	
 	def create
 		@article = Article.new(article_params)
- 	 	puts @article
 		if @article.save
 			#redirect_to @article, location: admin_articles_path
 			redirect_to admin_article_path(@article)
@@ -53,6 +53,11 @@ class Admin::ArticlesController <  Admin::AdminController
 		@article.destroy
  
 		redirect_to admin_articles_path
+	end
+	
+	def teste
+		@user = User.first
+		UserMailer.welcome_email(@user)
 	end
 	
 	private

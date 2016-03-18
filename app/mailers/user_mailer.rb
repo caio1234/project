@@ -5,7 +5,6 @@ class UserMailer < ActionMailer::Base
      @user = user
      @url  = 'www.google.com.br'
      mail(to: @user.email, subject: 'Bem vindo ao blog')
-		 redirect_to admin_article_path
    end
   
 end
